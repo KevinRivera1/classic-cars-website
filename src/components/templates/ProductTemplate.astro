@@ -1,0 +1,35 @@
+---
+import Banner from "../molecules/Banner.astro";
+import FilterSearch from "../molecules/FilterSearch.astro";
+import FilterPanel from "../organisms/FilterPanel.astro";
+import ProductList from "../organisms/ProductList.astro";
+
+import Image from "../../assets/banner.png";
+
+interface Props {
+  filters: string[];
+  products: [
+    {
+      image: string;
+      name: string;
+      description: string;
+      subtitle?: string;
+      price: string;
+    },
+  ];
+}
+
+const { filters, products } = Astro.props;
+---
+
+<div class="p-2 overflow-hidden text-[#27262d] font-semibold">
+  <FilterSearch placeholderText="ingrese su texto" />
+  <FilterPanel filters={filters} />
+  <Banner
+    src={Image.src}
+    alt="Banner promocional"
+    width={1200}
+    height={300}
+  />
+  <ProductList products={products} />
+</div>
