@@ -1,0 +1,16 @@
+---
+export interface Props {
+  placeholderText: string;
+  ariaLabel: string;
+  class?: string;
+}
+
+const { placeholderText, ariaLabel } = Astro.props;
+---
+
+<input
+  type="text"
+  placeholder={placeholderText || "Escriba aquí"}
+  class={`bg-[#27262d] p-2 rounded-lg md:w-[20rem] text-white ${Astro.props.class}`}
+  aria-label={ariaLabel || "Input Search"}
+/>

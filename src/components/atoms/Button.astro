@@ -1,0 +1,14 @@
+---
+interface Props {
+  name?: string;
+  class?: string;
+}
+
+const { name }: Props = Astro.props;
+---
+
+<button
+  class={`outline outline-[#27262d] px-6 py-2 rounded-lg ${Astro.props.class || ""}`}
+>
+  {name || "Button"}
+</button>
