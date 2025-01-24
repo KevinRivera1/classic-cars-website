@@ -1,5 +1,4 @@
 ---
-
 import ProductContainer from "@/components/containers/ProductContainer.astro";
 import Sidebar from "@/components/shared/Sidebar.astro";
 import SectionContainer from "../components/SectionContainer.astro";
@@ -10,7 +9,7 @@ import "../styles/global.css";
 <Layout>
   <SectionContainer class="section-container">
     <div class="wrapper">
-      <Sidebar class="aside bg-[#27262d]" />
+      <Sidebar class="aside bg-[#27262d] rounded-3xl hidden md:block" />
       <!-- content cars -->
       <ProductContainer class="contenido" />
     </div>
@@ -19,11 +18,10 @@ import "../styles/global.css";
 <style>
   .wrapper {
     display: grid;
-    grid-template-columns: 16rem 1fr;
+    grid-template-columns: repeat(auto-fit min(16rem, 1fr));
     grid-template-rows: 1fr;
     gap: 0rem 0.625rem;
     grid-template-areas: "aside contenido";
-    background: green;
   }
   .aside {
     grid-area: aside;
