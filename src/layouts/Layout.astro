@@ -5,162 +5,163 @@ import Header from "@/components/shared/Header.astro";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Autos Clasicos</title>
-	</head>
-	<body class="bg-[#e0decc]">
-        <Header />
-        <main>
-            <slot />
-        </main>
-        <Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Autos Clasicos</title>
+  </head>
+  <body class="bg-[#e0decc]">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-	@tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-
-/* Variables globales */
-:root {
-    --color-negro       : #393939;
-    --color-blanco      : #ffffff;
-    --tipo-principal    : Helvetica, Arial, sans-serif;
-    --tipo-secundaria   : Verdana, sans-serif;
-    --espaciado-base    : 1.4em;
+  @import "tailwindcss";
+  /* Variables globales */
+  :root {
+    --color-negro: #393939;
+    --color-blanco: #ffffff;
+    --tipo-principal: Helvetica, Arial, sans-serif;
+    --tipo-secundaria: Verdana, sans-serif;
+    --espaciado-base: 1.4em;
     --animacion-duracion: 0.2s;
-    --borde-foco        : 2px solid #005fcc;
-}
+    --borde-foco: 2px solid #005fcc;
+  }
 
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {
+  /* Modo oscuro */
+  @media (prefers-color-scheme: dark) {
     :root {
-        --color-negro : #ececec;
-        --color-blanco: #1a1a1a;
+      --color-negro: #ececec;
+      --color-blanco: #1a1a1a;
     }
-}
+  }
 
-/* Reset general */
-:where(*) {
-    margin        : 0;
-    padding       : 0;
-    border        : 0;
-    box-sizing    : border-box;
+  /* Reset general */
+  :where(*) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
     vertical-align: baseline;
-}
+  }
 
-/* Tipografía base */
-:where(html) {
-    font-size      : 100%;
-    line-height    : var(--espaciado-base);
+  /* Tipografía base */
+  :where(html) {
+    font-size: 100%;
+    line-height: var(--espaciado-base);
     scroll-behavior: smooth;
-}
+  }
 
-:where(body) {
-	height: 100vh;
-	height: 100dvh;
-    min-height             : 100vh;
-    font-family            : var(--tipo-principal);
-    font-size              : 1rem;
-    color                  : var(--color-negro);
-    background-color       : var(--color-blanco);
-    line-height            : var(--espaciado-base);
-    -webkit-font-smoothing : antialiased;
+  :where(body) {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    font-family: var(--tipo-principal);
+    font-size: 1rem;
+    color: var(--color-negro);
+    line-height: var(--espaciado-base);
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    hyphens                : auto;
-}
+    hyphens: auto;
+  }
 
-/* Imágenes y multimedia */
-:where(img, picture, video, iframe, figure) {
-    max-width      : 100%;
-    height         : auto;
-    display        : block;
-    object-fit     : cover;
-    object-position: center;
-}
-
-/* Enlaces */
-:where(a) {
-    text-decoration: none;
-    color          : inherit;
-    transition     : color var(--animacion-duracion) ease-in-out;
-}
-
-:where(a:hover, a:focus) {
-    text-decoration: underline;
-    outline        : none;
-}
-
-/* Elementos de lista */
-:where(ul, ol) {
-    list-style-position: inside;
-    margin             : 0;
-    padding-left       : 1.5rem;
-}
-
-:where(li) {
-    list-style-type: none;
-}
-
-/* Botones y elementos interactivos */
-:where(button, [type="button"], [type="submit"], [role="button"]) {
-    font-family     : inherit;
-    font-size       : inherit;
-    background-color: transparent;
-    color           : inherit;
-    border          : none;
-    cursor          : pointer;
-    transition      : background-color var(--animacion-duracion) ease-in-out;
-}
-
-:where(button:focus, [type="button"]:focus, [type="submit"]:focus, [role="button"]:focus) {
-    outline: var(--borde-foco);
-}
-
-/* Formularios */
-:where(form, input, textarea, select, button, label) {
-    font-family     : inherit;
-    font-size       : inherit;
-    color           : inherit;
-    background-color: transparent;
-    border          : none;
-    display         : block;
-    appearance      : none;
-    hyphens         : auto;
-}
-
-/* Tablas */
-:where(table) {
-    width          : 100%;
-    border-collapse: collapse;
-}
-
-:where(th, td) {
-    padding   : 0.5rem;
-    text-align: left;
-}
-
-/* SVG */
-:where(svg) {
-    width  : 100%;
-    height : auto;
+  /* Imágenes y multimedia */
+  :where(img, picture, video, iframe, figure) {
+    max-width: 100%;
+    height: auto;
     display: block;
-    fill   : currentColor;
-}
+    object-fit: cover;
+    object-position: center;
+  }
 
-/* Selección de texto */
-::selection {
-    background-color: var(--color-negro);
-    color           : var(--color-blanco);
-}
+  /* Enlaces */
+  :where(a) {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--animacion-duracion) ease-in-out;
+  }
 
-/* Focus visible para accesibilidad */
-:focus-visible {
+  :where(a:hover, a:focus) {
+    text-decoration: underline;
+    outline: none;
+  }
+
+  /* Elementos de lista */
+  :where(ul, ol) {
+    list-style-position: inside;
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  :where(li) {
+    list-style-type: none;
+  }
+
+  /* Botones y elementos interactivos */
+  :where(button, [type="button"], [type="submit"], [role="button"]) {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--animacion-duracion) ease-in-out;
+  }
+
+  :where(
+      button:focus,
+      [type="button"]:focus,
+      [type="submit"]:focus,
+      [role="button"]:focus
+    ) {
     outline: var(--borde-foco);
-}
+  }
+
+  /* Formularios */
+  :where(form, input, textarea, select, button, label) {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    display: block;
+    appearance: none;
+    hyphens: auto;
+  }
+
+  /* Tablas */
+  :where(table) {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  :where(th, td) {
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  /* SVG */
+  :where(svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+    fill: currentColor;
+  }
+
+  /* Selección de texto */
+  ::selection {
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+  }
+
+  /* Focus visible para accesibilidad */
+  :focus-visible {
+    outline: var(--borde-foco);
+  }
 </style>
