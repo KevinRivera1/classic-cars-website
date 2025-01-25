@@ -1,17 +1,135 @@
-<header class="container mx-auto flex items-center max-w-screen-lg py-8 border-b-2 border-black bg-[#e0decc] text-black font-bold">
-    <nav class="flex-1">
-        <ul class="flex justify-start items-center gap-4">
-            <li>Home</li>
-            <li>Colection</li>
-            <li>Service</li>
-            <li>About Us</li>
-        </ul>
+<header
+  class="container mx-auto max-w-screen-lg py-6 border-b-2 border-black bg-[#e0decc] text-black font-bold"
+  aria-label="Main header"
+>
+  <div class="flex flex-col items-center md:flex-row md:justify-between">
+    <!-- Branding -->
+    <h1 class="text-3xl md:text-4xl flex-1" aria-label="Heritage homepage">
+      <a href="/" class="hover:underline">Heritage.</a>
+    </h1>
+
+    <!-- Navigation -->
+    <nav class="hidden md:block flex-1" aria-label="Primary navigation">
+      <ul class="flex justify-start items-center">
+        <li>
+          <a
+            href="/"
+            class="hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/collection"
+            class="hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+            >Collection</a
+          >
+        </li>
+        <li>
+          <a
+            href="/service"
+            class="hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+            >Service</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+            >About</a
+          >
+        </li>
+      </ul>
     </nav>
-    <h1 class="text-3xl">Heritage.</h1>
-    <div class="btn-action flex justify-end items-center gap-4 flex-1 text-white">
-        <button class="bg-[#27262d] px-4 py-2 rounded-lg">Sign In</button>
-        <button class="bg-[#27262d] px-4 py-2 rounded-lg">
-            Info perfil
-        </button>
+
+    <!-- Action buttons -->
+    <div
+      class="flex justify-end items-center gap-4 text-white flex-1"
+      aria-label="User actions"
+    >
+      <button
+        class="bg-[#27262d] px-4 py-2 rounded-lg hover:bg-black transition"
+        aria-label="Sign in to your account"
+      >
+        <svg
+          class="size-6"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="24"
+          height="24"
+          stroke-width="2"
+        >
+          <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+          <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+          <path d="M17 17h-11v-14h-2"></path>
+          <path d="M6 5l14 1l-1 7h-13"></path>
+        </svg>
+      </button>
+      <button
+        class="bg-[#27262d] px-4 py-2 rounded-lg hover:bg-black transition flex items-center justify-between gap-x-2"
+        aria-label="View your profile information"
+      >
+        <figure>
+          <img
+            src="https://unavatar.io/github/mdo"
+            alt="User avatar"
+            class="size-6 rounded-full"
+          />
+        </figure>
+        <small>Kevin rivas</small>
+        <svg
+          class="size-5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="24"
+          height="24"
+          stroke-width="2"
+        >
+          <path d="M6 9l6 6l6 -6"></path>
+        </svg>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile navigation -->
+  <nav class="block md:hidden mt-4" aria-label="Mobile navigation">
+    <ul class="flex flex-col gap-2">
+      <li>
+        <a
+          href="/"
+          class="block hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          href="/collection"
+          class="block hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+          >Collection</a
+        >
+      </li>
+      <li>
+        <a
+          href="/service"
+          class="block hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+          >Service</a
+        >
+      </li>
+      <li>
+        <a
+          href="/about"
+          class="block hover:bg-slate-50 active:bg-slate-100 px-3 py-2 rounded transition"
+          >About</a
+        >
+      </li>
+    </ul>
+  </nav>
 </header>
