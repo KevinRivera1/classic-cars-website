@@ -10,16 +10,24 @@ interface Props {
 const { image, name, description, subtitle, price }: Props = Astro.props;
 ---
 
-<article class="bg-[#27262d] w-[12.5rem] p-1 rounded-2xl">
-  <figure>
-    <img src={image} class="rounded-xl" alt={name} height="200" width="200" />
+<article class="card bg-[#27262d] w-[14.6875rem] p-1 rounded-2xl">
+  <figure class="flex justify-center items-center">
+    <img
+      src={image}
+      class="rounded-xl w-full aspect-square object-center"
+      alt={name}
+      height="200"
+      width="200"
+    />
   </figure>
   <div class="card-header flex justify-between items-center mt-3 px-1">
     <div class="card-title">
       <h3 class="text-sm text-pretty">{name}</h3>
       <small class="text-sm">{subtitle}</small>
     </div>
-    <button class="outline-1 rounded-full p-2">
+    <button
+      class="outline-1 rounded-full p-2 hover:outline-amber-400 active:outline-amber-400 cursor-pointer"
+    >
       <svg
         class="size-4"
         xmlns="http://www.w3.org/2000/svg"
