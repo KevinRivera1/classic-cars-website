@@ -22,10 +22,10 @@ const { image, name, description, subtitle, price }: Props = Astro.props;
   </figure>
   <div class="card-header flex justify-between items-center mt-3 px-1">
     <div class="card-title space-y-1">
-      <h3 class="text-sm text-pretty text-white font-medium leading-tight">
+      <h3 class="text-sm text-pretty text-white font-blod leading-tight">
         {name}
       </h3>
-      <small class="text-sm text-white font-medium leading-tight"
+      <small class="text-sm text-white font-blod leading-tight"
         >{subtitle}</small
       >
     </div>
@@ -60,7 +60,7 @@ const { image, name, description, subtitle, price }: Props = Astro.props;
     >
     <div class="btn-bg bg-[#e0decc] px-4 py-2 rounded-full relative z-10">
       <button
-        class="bg-[#da6b13] rounded-full px-2 py-1 flex items-center justify-center"
+        class="bg-orange-600 hover:bg-orange-700 active:bg-orange-700 rounded-full px-2 py-1 flex items-center justify-center cursor-pointer"
         aria-label="View details"
       >
         <svg
