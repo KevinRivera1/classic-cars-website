@@ -21,9 +21,13 @@ const { image, name, description, subtitle, price }: Props = Astro.props;
     />
   </figure>
   <div class="card-header flex justify-between items-center mt-3 px-1">
-    <div class="card-title">
-      <h3 class="text-sm text-pretty">{name}</h3>
-      <small class="text-sm">{subtitle}</small>
+    <div class="card-title space-y-1">
+      <h3 class="text-sm text-pretty text-white font-medium leading-tight">
+        {name}
+      </h3>
+      <small class="text-sm text-white font-medium leading-tight"
+        >{subtitle}</small
+      >
     </div>
     <button
       class="outline-1 rounded-full p-2 hover:outline-amber-400 active:outline-amber-400 cursor-pointer"
@@ -48,12 +52,17 @@ const { image, name, description, subtitle, price }: Props = Astro.props;
     </button>
   </div>
 
-  <p class="mt-4 text-sm px-1">{description}</p>
+  <p class="mt-4 text-gray-300 text-sm px-1">{description}</p>
 
-  <div class="card-footer flex justify-between items-center mt-4">
-    <span class="text-[#da6b13]">{price}</span>
+  <div class="card-footer flex justify-between items-center mt-4 px-1">
+    <span class="text-[#ffa726] font-bold text-xl"
+      >{price.toLocaleString()}</span
+    >
     <div class="btn-bg bg-[#e0decc] px-4 py-2 rounded-full relative z-10">
-      <button class="bg-[#da6b13] rounded-full px-2 py-1">
+      <button
+        class="bg-[#da6b13] rounded-full px-2 py-1 flex items-center justify-center"
+        aria-label="View details"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
