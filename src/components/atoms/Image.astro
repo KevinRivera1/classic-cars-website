@@ -1,0 +1,19 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  height: number;
+  width: number;
+  class?: string;
+}
+
+const { src, alt, height, width } = Astro.props;
+---
+
+<img
+  src={src}
+  class={`size-full object-cover rounded-2xl ${Astro.props.class}`}
+  alt={alt || "Promotional Banner"}
+  height={height || "300"}
+  width={width || "1200"}
+/>

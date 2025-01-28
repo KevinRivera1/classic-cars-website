@@ -1,0 +1,24 @@
+---
+export interface Props {
+  placeholderText: string;
+  ariaLabel: string;
+  class?: string;
+}
+
+const { placeholderText, ariaLabel } = Astro.props;
+---
+
+<input
+  type="text"
+  placeholder={placeholderText || "Escriba aquí"}
+  class={`input-search bg-[#27262d] p-2 rounded-lg w-[8rem] sm:w-[20rem] text-white ${Astro.props.class}`}
+  aria-label={ariaLabel || "Input Search"}
+/>
+
+<style>
+  @media (width < 640px){
+    .input-search {
+      width: 100%;
+    }
+  }
+</style>
