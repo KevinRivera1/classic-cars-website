@@ -1,5 +1,5 @@
 <aside class={`overflow-hidden ${Astro.props.class}`} aria-label="Filters">
-  <header class="p-4">
+  <div class="p-4">
     <h2 class="flex justify-start items-center w-full gap-x-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@
       </svg>
       Filter
     </h2>
-  </header>
+  </div>
   <nav>
     <ul>
       <li class="p-4">
@@ -40,7 +40,7 @@
             <path d="M6 9l6 6l6 -6"></path>
           </svg>
         </span>
-        <ul>
+        <ul class="hidden"> <!-- Todo: Hacer funcionalidad de despliegue -->
           <li class="px-4"><a href="#">Category 1</a></li>
           <li class="px-4"><a href="#">Category 2</a></li>
           <li class="px-4"><a href="#">Category 3</a></li>
