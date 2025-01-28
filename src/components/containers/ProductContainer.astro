@@ -1,0 +1,40 @@
+---
+import ImageRoyce from "../../assets/car-1.avif";
+import ImageMGB from "../../assets/car-2.avif";
+import ImageFerrari from "../../assets/car-3.avif";
+import ProductTemplate from "../templates/ProductTemplate.astro";
+
+const filters = ["Category 1", "Category 2", "Category 3", "Category 4"];
+const products: [
+  {
+    image: string;
+    name: string;
+    description: string;
+    subtitle?: string;
+    price: string;
+  },
+] = [
+  {
+    image: ImageRoyce.src,
+    name: "Rolls-Royce silver",
+    subtitle: "Cloud III Rear",
+    description: "Production: 1955-1966",
+    price: "$ 240.000",
+  },
+  {
+    image: ImageMGB.src,
+    name: "MG MGB",
+    description: "Production: 1962-1980",
+    price: "$ 234.000",
+  },
+  {
+    image: ImageFerrari.src,
+    name: "Ferrari 250 GT LWB",
+    subtitle: "California Spyder",
+    description: "Production: 1957-1963",
+    price: "$ 735.000",
+  },
+];
+---
+
+<ProductTemplate filters={filters} products={products} />

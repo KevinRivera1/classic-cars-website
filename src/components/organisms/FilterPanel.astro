@@ -1,0 +1,20 @@
+---
+export interface Props {
+  filters: string[];
+}
+
+const { filters } = Astro.props;
+---
+
+<section
+  class="filter-pill mt-4 flex items-center gap-4 text-[#27262d]"
+  aria-label="Active Filters"
+>
+  {
+    filters.map((category) => (
+      <span class="p-1.5 px-4 min-w-max outline-2 outline-[#27262d] rounded-full">
+        {category}
+      </span>
+    ))
+  }
+</section>

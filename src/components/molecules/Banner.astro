@@ -1,0 +1,17 @@
+---
+import Image from "../atoms/Image.astro";
+interface Props {
+  src: string;
+  alt: string;
+  height: number;
+  width: number;
+}
+const { src, alt, height, width }: Props = Astro.props;
+---
+
+<section
+  class="banner mt-4 bg-[#27262d] rounded-2xl"
+  aria-label="Promotional Banner"
+>
+  <Image src={src} alt={alt} height={height} width={width} />
+</section>

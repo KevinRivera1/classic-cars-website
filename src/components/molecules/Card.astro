@@ -1,0 +1,88 @@
+---
+interface Props {
+  image: string;
+  name: string;
+  description: string;
+  subtitle?: string;
+  price: string;
+}
+
+const { image, name, description, subtitle, price }: Props = Astro.props;
+---
+
+<article class="card bg-[#27262d] w-[14.6875rem] p-1 rounded-2xl">
+  <figure class="flex justify-center items-center">
+    <img
+      src={image}
+      class="rounded-xl w-full aspect-square object-center object-cover"
+      alt={name}
+      height="200"
+      width="200"
+    />
+  </figure>
+  <div class="card-header flex justify-between items-center mt-3 px-1">
+    <div class="card-title space-y-1">
+      <h3 class="text-sm text-pretty text-white font-blod leading-tight">
+        {name}
+      </h3>
+      <small class="text-sm text-white font-blod leading-tight"
+        >{subtitle}</small
+      >
+    </div>
+    <button
+      class="outline-1 rounded-full p-2 hover:outline-amber-400 active:outline-amber-400 cursor-pointer"
+    >
+      <svg
+        class="size-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="24"
+        height="24"
+        stroke-width="2"
+      >
+        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+        <path d="M17 17h-11v-14h-2"></path>
+        <path d="M6 5l14 1l-1 7h-13"></path>
+      </svg>
+    </button>
+  </div>
+
+  <p class="mt-4 text-gray-300 text-sm px-1">{description}</p>
+
+  <div class="card-footer flex justify-between items-center mt-4 px-1">
+    <span class="text-[#ffa726] font-bold text-xl"
+      >{price.toLocaleString()}</span
+    >
+    <div class="btn-bg bg-[#e0decc] px-4 py-2 rounded-full relative z-10">
+      <button
+        class="bg-orange-600 hover:bg-orange-700 active:bg-orange-700 rounded-full px-2 py-1 flex items-center justify-center cursor-pointer"
+        aria-label="View details"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="24"
+          height="24"
+          stroke-width="2"
+        >
+          <path d="M5 12l14 0"></path>
+          <path d="M15 16l4 -4"></path>
+          <path d="M15 8l4 4"></path>
+        </svg>
+      </button>
+      <div
+        class="bacground-btn absolute -left-1 -bottom-1 h-14 w-22 bg-[#e0decc] rounded-ss-3xl -z-10"
+      >
+      </div>
+    </div>
+  </div>
+</article>
