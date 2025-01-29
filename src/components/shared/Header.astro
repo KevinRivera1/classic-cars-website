@@ -167,29 +167,35 @@
 </header>
 
 <script>
-  const toggleMobile = document.getElementById("toggle-mobile") as HTMLElement;
-  const mobileNav = document.getElementById("mobile-nav") as HTMLButtonElement;
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleMobile = document.getElementById(
+      "toggle-mobile"
+    ) as HTMLElement;
+    const mobileNav = document.getElementById(
+      "mobile-nav"
+    ) as HTMLButtonElement;
 
-  toggleMobile.addEventListener("click", () => {
-    if (toggleMobile && mobileNav) {
-      mobileNav.setAttribute(
-        "aria-hidden",
-        mobileNav.classList.contains("left-0") ? "false" : "true"
-      );
-      mobileNav.classList.toggle("left-0");
+    toggleMobile.addEventListener("click", () => {
+      if (toggleMobile && mobileNav) {
+        mobileNav.setAttribute(
+          "aria-hidden",
+          mobileNav.classList.contains("left-0") ? "false" : "true"
+        );
+        mobileNav.classList.toggle("left-0");
 
-      toggleMobile.setAttribute(
-        "aria-expanded",
-        mobileNav.classList.contains("left-0") ? "true" : "false"
-      );
-    }
-  });
+        toggleMobile.setAttribute(
+          "aria-expanded",
+          mobileNav.classList.contains("left-0") ? "true" : "false"
+        );
+      }
+    });
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 1024 && mobileNav.classList.contains("left-0")) {
-      mobileNav.classList.remove("left-0");
-      mobileNav.setAttribute("aria-hidden", "true");
-      toggleMobile.setAttribute("aria-expanded", "false");
-    }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1024 && mobileNav.classList.contains("left-0")) {
+        mobileNav.classList.remove("left-0");
+        mobileNav.setAttribute("aria-hidden", "true");
+        toggleMobile.setAttribute("aria-expanded", "false");
+      }
+    });
   });
 </script>
