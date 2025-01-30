@@ -1,3 +1,7 @@
+---
+import { menuItems } from "../../data/menu/menu.data";
+---
+
 <script>
   import "./controllers/menu.controller.ts";
 </script>
@@ -17,34 +21,21 @@
     <!-- Navigation desktop -->
     <nav class="hidden lg:block flex-1" aria-label="Primary navigation">
       <ul class="flex justify-start items-center">
-        <li>
-          <a
-            href="/"
-            class="hover:bg-amber-400 active:bg-amber-4000 px-3 py-2 rounded transition"
-            aria-label="Ir a la página de inicio">Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="/collection"
-            class="hover:bg-amber-400 active:bg-amber-4000 px-3 py-2 rounded transition"
-            aria-label="Ir a la colección de productos">Collection</a
-          >
-        </li>
-        <li>
-          <a
-            href="/service"
-            class="hover:bg-amber-400 active:bg-amber-4000 px-3 py-2 rounded transition"
-            aria-label="Ir a la página de servicios">Service</a
-          >
-        </li>
-        <li>
-          <a
-            href="/about"
-            class="hover:bg-amber-400 active:bg-amber-4000 px-3 py-2 rounded transition"
-            aria-label="Ir a la página de información">About</a
-          >
-        </li>
+        {
+          menuItems.map((item) => {
+            return (
+              <li>
+                <a
+                  href={item.url}
+                  class="hover:bg-amber-400 active:bg-amber-4000 px-3 py-2 rounded transition"
+                  aria-label={item.ariaLabel}
+                >
+                  {item.name}
+                </a>
+              </li>
+            );
+          })
+        }
       </ul>
     </nav>
 
@@ -138,34 +129,21 @@
     aria-hidden="true"
   >
     <ul class="flex flex-col gap-2 items-center justify-center h-full">
-      <li>
-        <a
-          href="/"
-          class="block hover:bg-amber-400 active:bg-amber-400 px-3 py-2 rounded transition"
-          aria-label="Ir a la página de inicio">Home</a
-        >
-      </li>
-      <li>
-        <a
-          href="/collection"
-          class="block hover:bg-amber-400 active:bg-amber-400 px-3 py-2 rounded transition"
-          aria-label="Ir a la colección de productos">Collection</a
-        >
-      </li>
-      <li>
-        <a
-          href="/service"
-          class="block hover:bg-amber-400 active:bg-amber-400 px-3 py-2 rounded transition"
-          aria-label="Ir a la página de servicios">Service</a
-        >
-      </li>
-      <li>
-        <a
-          href="/about"
-          class="block hover:bg-amber-400 active:bg-amber-400 px-3 py-2 rounded transition"
-          aria-label="Ir a la página de información">About</a
-        >
-      </li>
+      {
+        menuItems.map((item) => {
+          return (
+            <li>
+              <a
+                href={item.url}
+                class="block hover:bg-amber-400 active:bg-amber-400 px-3 py-2 rounded transition"
+                aria-label={item.ariaLabel}
+              >
+                {item.name}
+              </a>
+            </li>
+          );
+        })
+      }
     </ul>
   </nav>
 </header>
