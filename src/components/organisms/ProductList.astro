@@ -1,16 +1,9 @@
 ---
+import type { IProduct } from "@/core/domain/products/products.entity";
 import Card from "../molecules/Card.astro";
 
 interface Props {
-  products: [
-    {
-      image: string;
-      name: string;
-      description: string;
-      subtitle?: string;
-      price: string;
-    },
-  ];
+  products: IProduct[];
 }
 
 const { products } = Astro.props;

@@ -5,18 +5,11 @@ import FilterPanel from "../organisms/FilterPanel.astro";
 import ProductList from "../organisms/ProductList.astro";
 
 import Image from "../../assets/banner.png";
+import type { IProduct } from "@/core/domain/products/products.entity";
 
 interface Props {
   filters: string[];
-  products: [
-    {
-      image: string;
-      name: string;
-      description: string;
-      subtitle?: string;
-      price: string;
-    },
-  ];
+  products: IProduct[];
 }
 
 const { filters, products } = Astro.props;
