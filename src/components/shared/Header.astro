@@ -1,3 +1,7 @@
+<script>
+  import "./controllers/menu.controller.ts";
+</script>
+
 <header
   class="container mx-auto max-w-screen-lg py-6 px-6 lg:px-0 border-b-2 border-black bg-[#e0decc] text-black font-bold"
   aria-label="Main header"
@@ -165,37 +169,3 @@
     </ul>
   </nav>
 </header>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleMobile = document.getElementById(
-      "toggle-mobile"
-    ) as HTMLElement;
-    const mobileNav = document.getElementById(
-      "mobile-nav"
-    ) as HTMLButtonElement;
-
-    toggleMobile.addEventListener("click", () => {
-      if (toggleMobile && mobileNav) {
-        mobileNav.setAttribute(
-          "aria-hidden",
-          mobileNav.classList.contains("left-0") ? "false" : "true"
-        );
-        mobileNav.classList.toggle("left-0");
-
-        toggleMobile.setAttribute(
-          "aria-expanded",
-          mobileNav.classList.contains("left-0") ? "true" : "false"
-        );
-      }
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 1024 && mobileNav.classList.contains("left-0")) {
-        mobileNav.classList.remove("left-0");
-        mobileNav.setAttribute("aria-hidden", "true");
-        toggleMobile.setAttribute("aria-expanded", "false");
-      }
-    });
-  });
-</script>
