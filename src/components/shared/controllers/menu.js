@@ -17,4 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.style.left = '0';
     }
   });
+
+  menu.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      toggle.click();
+    }
+  });
+
 });
