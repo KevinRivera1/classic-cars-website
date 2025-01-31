@@ -80,9 +80,57 @@ const { image, name, description, subtitle, price }: Props = Astro.props;
         </svg>
       </button>
       <div
-        class="bacground-btn absolute -left-1 -bottom-1 h-14 w-22 bg-[#e0decc] rounded-ss-3xl -z-10"
+        class="background-btn absolute -left-1 -bottom-1 h-14 w-22 bg-[#e0decc] rounded-ss-3xl -z-10"
       >
       </div>
+      <div class="ball"></div>
+      <div class="rectangle"></div>
     </div>
   </div>
 </article>
+
+<style>
+  .ball {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #27262d;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -0.25rem;
+    left: -1.75rem;
+    z-index: -1;
+  }
+  .ball::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #27262d;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3.5rem;
+    right: -84px;
+    z-index: -1;
+  }
+
+  .rectangle {
+    width: 6rem;
+    height: 0.7rem;
+    background-color: #e0decc;
+    position: absolute;
+    bottom: -0.25rem;
+    left: -1rem;
+    z-index: -2;
+  }
+
+  .rectangle::before {
+    content: "";
+    width: 3rem;
+    height: 0.7rem;
+    background-color: #e0decc;
+    position: absolute;
+    bottom: 2.3rem;
+    right: -1.1563rem;
+    z-index: -2;
+    transform: rotate(90deg);
+  }
+</style>
