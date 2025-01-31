@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  keywords: string;
+}
+
+const { title, description, image, url, keywords }: Props = Astro.props;
+---
+
+<!-- HTML Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content={url} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content="" />
+<meta property="og:image" content={image} />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content="classic-cars.vercel.app" />
+<meta property="twitter:url" content={url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content={image} />
