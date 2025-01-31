@@ -10,16 +10,21 @@ interface Props {
 const { title, description, image, url, keywords }: Props = Astro.props;
 ---
 
+<!-- Canonical URL -->
+<link rel="canonical" href={url} />
+
 <!-- HTML Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="author" content="Kevin Rivera" />
 <meta name="keywords" content={keywords} />
+<meta name="robots" content="index, follow" />
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content={url} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
-<meta property="og:description" content="" />
+<meta property="og:description" content={description} />
 <meta property="og:image" content={image} />
 
 <!-- Twitter Meta Tags -->
@@ -27,5 +32,5 @@ const { title, description, image, url, keywords }: Props = Astro.props;
 <meta property="twitter:domain" content="classic-cars.vercel.app" />
 <meta property="twitter:url" content={url} />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
