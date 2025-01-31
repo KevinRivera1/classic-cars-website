@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const isExpanded = toggle.getAttribute("aria-expanded") === "true";
 
     toggle.setAttribute("aria-expanded", String(!isExpanded));
-    menu.classList.toggle("-left-96");
+
     menu.classList.toggle("left-0");
+    
 
     menu.setAttribute("aria-hidden", String(isExpanded));
   });
