@@ -9,9 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toggle.setAttribute("aria-expanded", String(!isExpanded));
 
-    menu.classList.toggle("left-0");
-    
-
-    menu.setAttribute("aria-hidden", String(isExpanded));
+    if (isExpanded) {
+      menu.style.left = '-15.625rem';
+      menu.setAttribute("aria-hidden", "true");
+    } else {
+      menu.setAttribute("aria-hidden", "false");
+      menu.style.left = '0';
+    }
   });
 });
