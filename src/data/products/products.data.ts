@@ -1,7 +1,7 @@
 import type { IProduct } from "@/core/domain/products/products.entity";
-import ImageRoyce from "../../assets/car-1.avif";
-import ImageMGB from "../../assets/car-2.avif";
-import ImageFerrari from "../../assets/car-3.avif";
+import ImageRoyce from "../../assets/car-1.webp";
+import ImageMGB from "../../assets/car-2.webp";
+import ImageFerrari from "../../assets/car-3.webp";
 
 export const productsItems: IProduct[] = [
   {
