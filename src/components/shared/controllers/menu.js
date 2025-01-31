@@ -18,8 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1024) {
+      toggle.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-hidden", "true");
+      menu.style.left = '-15.625rem';
+    }
+  });
+
   menu.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
+    if (e.key === "scape") {
       toggle.click();
     }
   });
