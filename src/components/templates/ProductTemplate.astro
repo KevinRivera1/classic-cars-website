@@ -4,8 +4,8 @@ import FilterSearch from "../molecules/FilterSearch.astro";
 import FilterPanel from "../organisms/FilterPanel.astro";
 import ProductList from "../organisms/ProductList.astro";
 
-import Image from "../../assets/banner.png";
 import type { IProduct } from "@/core/domain/products/products.entity";
+import Image from "../../assets/banner.webp";
 
 interface Props {
   filters: string[];
@@ -19,7 +19,7 @@ const { filters, products } = Astro.props;
   <FilterSearch placeholderText="ingrese su texto" />
   <FilterPanel filters={filters} />
   <Banner
-    src={Image.src}
+    src={Image}
     alt="Banner promocional"
     width={1200}
     height={300}

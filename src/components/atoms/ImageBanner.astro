@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   height: number;
   width: number;
@@ -10,7 +12,7 @@ interface Props {
 const { src, alt, height, width } = Astro.props;
 ---
 
-<img
+<Image
   src={src}
   class={`size-full object-cover rounded-2xl ${Astro.props.class}`}
   alt={alt || "Promotional Banner"}
