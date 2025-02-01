@@ -49,10 +49,10 @@ const filters = await getFilters();
                   </svg>
                 )}
               </span>
-              <ul class="">
+              <ul>
                 {category.subItems?.map((subItem) => {
                   return (
-                    <li class="px-4">
+                    <li class="px-4 hover:text-amber-400 cursor-pointer">
                       <a href="#">{subItem.name}</a>
                     </li>
                   );
