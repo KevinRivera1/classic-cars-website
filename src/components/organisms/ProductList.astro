@@ -1,12 +1,8 @@
 ---
-import type { IProduct } from "@/core/domain/products/products.entity";
+import { getProducts } from "@/core/usecases/getProducts";
 import Card from "../molecules/Card.astro";
 
-interface Props {
-  products: IProduct[];
-}
-
-const { products } = Astro.props;
+const products = await getProducts();
 ---
 
 <section
