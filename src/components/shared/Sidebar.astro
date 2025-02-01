@@ -1,3 +1,9 @@
+---
+import { getFilters } from "@/core/usecases/getFilters";
+
+const filters = await getFilters();
+---
+
 <aside class={`overflow-hidden ${Astro.props.class}`} aria-label="Filters">
   <div class="p-4">
     <h2 class="flex justify-start items-center w-full gap-x-2">
@@ -21,69 +27,41 @@
   </div>
   <nav>
     <ul>
-      <li class="p-4">
-        <span
-          class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400"
-        >
-          Browse by Category
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            width="24"
-            height="24"
-            stroke-width="2"
-          >
-            <path d="M6 9l6 6l6 -6"></path>
-          </svg>
-        </span>
-        <ul class="hidden"> <!-- Todo: Hacer funcionalidad de despliegue -->
-          <li class="px-4"><a href="#">Category 1</a></li>
-          <li class="px-4"><a href="#">Category 2</a></li>
-          <li class="px-4"><a href="#">Category 3</a></li>
-        </ul>
-      </li>
-      <li class="p-4">
-        <a
-          href="#"
-          class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400"
-          >Brand <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            width="24"
-            height="24"
-            stroke-width="2"
-          >
-            <path d="M6 9l6 6l6 -6"></path>
-          </svg></a
-        >
-      </li>
-      <li class="p-4">
-        <a
-          href="#"
-          class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400"
-          >Country <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            width="24"
-            height="24"
-            stroke-width="2"
-          >
-            <path d="M6 9l6 6l6 -6"></path>
-          </svg></a
-        >
-      </li>
+      {
+        filters.map((category) => {
+          return (
+            <li class="p-4">
+              <span class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400 cursor-pointer">
+                {category.name}
+                {category.subItems && category.subItems.length > 0 && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    width="24"
+                    height="24"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6l6 -6" />
+                  </svg>
+                )}
+              </span>
+              <ul class="">
+                {category.subItems?.map((subItem) => {
+                  return (
+                    <li class="px-4">
+                      <a href="#">{subItem.name}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+          );
+        })
+      }
     </ul>
   </nav>
 </aside>
