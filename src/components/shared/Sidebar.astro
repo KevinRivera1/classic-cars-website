@@ -31,7 +31,7 @@ const filters = await getFilters();
         filters.map((category) => {
           return (
             <li class="p-4">
-              <span class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400 cursor-pointer">
+              <span class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400 active:text-amber-400 cursor-pointer">
                 {category.name}
                 {category.subItems && category.subItems.length > 0 && (
                   <svg
@@ -52,8 +52,22 @@ const filters = await getFilters();
               <ul>
                 {category.subItems?.map((subItem) => {
                   return (
-                    <li class="px-4 hover:text-amber-400 cursor-pointer">
-                      <a href="#">{subItem.name}</a>
+                    <li class="hover:text-amber-400 active:text-amber-400 cursor-pointer flex">
+                      <svg
+                        class="text-amber-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        width="24"
+                        height="24"
+                        stroke-width="2"
+                      >
+                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                      </svg>
+                      <a href={subItem.link}>{subItem.name}</a>
                     </li>
                   );
                 })}
