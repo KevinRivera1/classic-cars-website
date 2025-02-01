@@ -1,9 +1,7 @@
 ---
-export interface Props {
-  filters: string[];
-}
+import { getFilters } from "@/core/usecases/getFilters";
 
-const { filters } = Astro.props;
+const filters = await getFilters();
 ---
 
 <section
@@ -13,7 +11,7 @@ const { filters } = Astro.props;
   {
     filters.map((category) => (
       <span class="p-1.5 px-4 min-w-max outline-2 outline-[#27262d] rounded-full">
-        {category}
+        {category.name}
       </span>
     ))
   }
