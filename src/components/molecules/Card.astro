@@ -22,15 +22,16 @@ const { image, name, description, subtitle, price }: Props = Astro.props;
   </figure>
   <div class="card-header flex justify-between items-center mt-3 px-1">
     <div class="card-title space-y-1">
-      <h3 class="text-sm text-pretty text-white font-blod leading-tight">
+      <h2 class="text-sm text-pretty text-white font-blod leading-tight">
         {name}
-      </h3>
+      </h2>
       <small class="text-sm text-white font-blod leading-tight"
         >{subtitle}</small
       >
     </div>
     <button
       class="outline-1 rounded-full p-2 hover:outline-amber-400 active:outline-amber-400 cursor-pointer"
+      aria-label="Agregar al carrito"
     >
       <svg
         class="size-4"
