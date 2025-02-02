@@ -4,6 +4,42 @@ import { getFilters } from "@/core/usecases/getFilters";
 const filters = await getFilters();
 ---
 
+<script>
+  const d = document;
+
+  d.addEventListener("DOMContentLoaded", () => {
+    const dropdownToggles = document.querySelectorAll(
+      '[data-toggle="dropdown"]'
+    );
+
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        const dropdownContent = toggle.nextElementSibling;
+
+        if (
+          dropdownContent &&
+          dropdownContent.hasAttribute("data-dropdown-content")
+        ) {
+          dropdownContent.classList.toggle("hidden");
+        }
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      const dropdownContents = document.querySelectorAll(
+        "[data-dropdown-content]"
+      );
+      dropdownContents.forEach((content) => {
+        if (!content.contains(event.target as Node)) {
+          content.classList.add("hidden");
+        }
+      });
+    });
+  });
+</script>
+
 <aside class={`overflow-hidden ${Astro.props.class}`} aria-label="Filters">
   <div class="p-4">
     <h2 class="flex justify-start items-center w-full gap-x-2">
@@ -30,8 +66,11 @@ const filters = await getFilters();
       {
         filters.map((category) => {
           return (
-            <li class="p-4">
-              <span class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400 active:text-amber-400 cursor-pointer">
+            <li class="p-4" data-category={category.name}>
+              <span
+                class="flex justify-between items-center w-full gap-x-4 hover:text-amber-400 active:text-amber-400 cursor-pointer"
+                data-toggle="dropdown"
+              >
                 {category.name}
                 {category.subItems && category.subItems.length > 0 && (
                   <svg
@@ -49,7 +88,10 @@ const filters = await getFilters();
                   </svg>
                 )}
               </span>
-              <ul>
+              <ul
+                class="hidden overflow-hidden transition-all duration-300 ease-in-out"
+                data-dropdown-content
+              >
                 {category.subItems?.map((subItem) => {
                   return (
                     <li class="hover:text-amber-400 active:text-amber-400 cursor-pointer flex">
